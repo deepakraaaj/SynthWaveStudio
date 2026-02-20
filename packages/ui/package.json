@@ -1,0 +1,12 @@
+{
+    "name": "@soundtrack/ui",
+    "version": "1.0.0",
+    "main": "./src/index.tsx",
+    "types": "./src/index.tsx",
+    "scripts": {
+        "test": "vitest run"
+    },
+    "dependencies": {
+        "framer-motion": "^12.4.7"
+    }
+}

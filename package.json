@@ -1,0 +1,19 @@
+{
+  "name": "soundtrack-advanced",
+  "version": "1.0.0",
+  "description": "Advanced music production suite",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "npm@10.2.4",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "turbo": "^2.8.10"
+  }
+}

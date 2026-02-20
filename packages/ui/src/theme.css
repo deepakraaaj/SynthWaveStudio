@@ -1,0 +1,343 @@
+:root {
+  /* Color Palette - Premium Dark Studio */
+  --bg-primary: #0a0a0c;
+  --bg-secondary: #0f1115;
+  --bg-tertiary: #161a1f;
+
+  --accent-primary: #6366f1;
+  /* Indigo */
+  --accent-secondary: #a855f7;
+  /* Purple */
+  --accent-glow: rgba(99, 102, 241, 0.4);
+
+  --text-main: #f8fafc;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-blur: blur(20px);
+  --inner-glow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+
+  /* Piano Colors */
+  --key-white: #e2e8f0;
+  --key-white-hover: #f1f5f9;
+  --key-black: #1e293b;
+  --key-active: var(--accent-primary);
+  --key-active-shadow: 0 0 20px var(--accent-glow);
+
+  /* Typography */
+  --font-main: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Transitions */
+  --transition-fast: all 0.1s ease;
+  --transition-smooth: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 50% -20%, var(--accent-glow), transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+.card-premium {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--inner-glow), 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  transition: var(--transition-smooth);
+}
+
+.panel-title {
+  margin: 0 0 12px 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+  filter: brightness(1.1);
+}
+
+/* Control Groups */
+.control-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-label {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Premium Custom Slider */
+.slider-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--text-main);
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-glow);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.slider-input:hover::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background: var(--accent-primary);
+}
+
+.select-input {
+  background: var(--bg-tertiary);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-family: var(--font-main);
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.select-input:hover {
+  border-color: var(--accent-primary);
+}
+
+.control-value {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  align-self: flex-end;
+  color: var(--accent-primary);
+  opacity: 0.8;
+}
+
+/* Piano Keyboard */
+.piano-keyboard-container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) transparent;
+}
+
+.piano-keyboard-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.piano-keyboard-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.piano-keyboard-container::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 3px;
+}
+
+.piano-keyboard {
+  position: relative;
+  height: 170px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 6px 6px 8px;
+  border-radius: 0 0 8px 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+.piano-key {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  transition: var(--transition-fast);
+  user-select: none;
+  touch-action: none;
+}
+
+.white-key {
+  height: 156px;
+  background: linear-gradient(180deg, #f8fafc 0%, #dbe3ed 80%);
+  border-radius: 0 0 6px 6px;
+  color: var(--text-dim);
+  z-index: 1;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: inset 0 -8px 14px rgba(15, 23, 42, 0.08);
+}
+
+.black-key {
+  width: clamp(10px, 1.7vw, 22px);
+  height: 96px;
+  background: linear-gradient(180deg, #334155 0%, #0f172a 88%);
+  z-index: 2;
+  border-radius: 0 0 5px 5px;
+  color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.45);
+}
+
+.piano-key.active {
+  background: var(--key-active) !important;
+  color: white;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22), var(--key-active-shadow);
+  transform: translateY(1px);
+}
+
+.key-label {
+  font-size: 0.56rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  pointer-events: none;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.9);
+}
+
+.key-label-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  pointer-events: none;
+}
+
+.key-shortcut {
+  font-size: 0.62rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: rgba(15, 23, 42, 0.96);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  padding: 2px 5px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.black-key .key-shortcut {
+  color: #f8fafc;
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.black-key .key-label-wrap {
+  bottom: 5px;
+}
+
+.black-key .key-label {
+  color: rgba(226, 232, 240, 0.9);
+}
+
+@media (max-width: 900px) {
+  .piano-keyboard {
+    height: 148px;
+    padding: 5px 4px 6px;
+  }
+
+  .white-key {
+    height: 134px;
+  }
+
+  .black-key {
+    height: 80px;
+    width: clamp(9px, 2.3vw, 14px);
+  }
+
+  .key-shortcut {
+    font-size: 0.52rem;
+    padding: 1px 4px;
+  }
+
+  .key-label {
+    font-size: 0.48rem;
+  }
+}
+
+.magnifier-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  gap: 1px;
+}
+
+/* Magnifier / mini-map container: keep viewport constrained */
+.keyboard-magnifier {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.mini-key {
+  flex: 1;
+}
+
+.mini-key.black {
+  background: #000;
+  height: 60%;
+}
+
+.mini-key.white {
+  background: #fff;
+  height: 100%;
+}
+
+.magnifier-viewport {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: rgba(99, 102, 241, 0.2);
+  border: 2px solid var(--accent-primary);
+  box-sizing: border-box;
+  z-index: 10;
+  pointer-events: none;
+  transition: transform 0.1s linear;
+}
